@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-thumbnail slot="start">
+      <img src="../assets/img/Symbol-New-York-Times.png" alt="imagem logo" id="logo">
+    </ion-thumbnail>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <ion-segment 
+  [value]="selectedCategory" 
+  (ionChange)="segmentChanged($event)"
+  scrollable mode="md">
+    
+  <ion-segment-button 
+  *ngFor="let category of categories"
+  [value]="category">
+      <ion-label class="ion-text-capitalize">{{ category }}</ion-label>
+    </ion-segment-button>
+    
+
+  </ion-segment>
+
+  <!-- Botão adicional -->
+  <ion-fab>
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button>
+        <ion-icon name="person-sharp"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="bookmark-sharp" (click)="irPagSalvos()"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="qr-code-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <app-articles
+  [articles]="articles">
+  </app-articles>
+
+  <ion-infinite-scroll 
+    threshold="25%" 
+    position="bottom" 
+    (ionInfinite)="loadData()"
+    >
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="loading...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

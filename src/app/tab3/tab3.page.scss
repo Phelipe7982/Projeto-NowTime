@@ -1,0 +1,46 @@
+ion-title {
+  font-size: 27px;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 15px;
+}
+
+ion-radio-group {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ion-radio {
+  --border-radius: 4px;
+  --inner-border-radius: 4px;
+  --color: #ddd;
+  --color-checked: #298deb;
+  --font-size: 10px;
+  margin-left: 7px;
+}
+
+ion-radio.ios::part(container) {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.radio-checked.ios::part(container) {
+  border-color: #298deb;
+}
+
+#div-local {
+  margin-top: 20%;
+}
+
+ion-button {
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 45px;
+  width: 95%;
+}

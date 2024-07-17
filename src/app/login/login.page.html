@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>NowTime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">NowTime</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+      <ion-card-subtitle>Entre com suas credenciais</ion-card-subtitle>
+    </ion-card-header>
+
+    <!-- Input E-mail -->
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+         [(ngModel)]="email"
+          name="email"
+          id="email"
+          label="E-mail"
+          labelPlacement="stacked"
+          [clearOnEdit]="true"
+          placeholder="Digite seu e-mail"
+        >
+        </ion-input>
+      </ion-item>
+
+      <!-- Input Senha -->
+      <ion-item>
+        <ion-input
+          id="senha"
+          label="Senha"
+          labelPlacement="stacked"
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          placeholder="Digite sua senha"
+
+        >
+        </ion-input>
+      </ion-item>
+      <ion-button (click)="login()" expand="full" shape="round">Entrar<ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button><br/>
+      <div class="hr"><ion-item-divider id="hr1"></ion-item-divider>OU<ion-item-divider id="hr2"></ion-item-divider></div>
+      <div>
+        <ion-button size="large" fill="clear" class="login-with-google-btn" (click)="loginWithGoogle()"><ion-icon slot="icon-only" name="logo-google"></ion-icon></ion-button>
+      </div>
+        <div>
+          <ion-label>Não possui conta? <ion-button id="link-cadastro" (click)="irPagCad()" fill="clear">Cadastre-se</ion-button> </ion-label>
+        </div>
+    </ion-card-content>
+  </ion-card>
+  </form>
+</ion-content>

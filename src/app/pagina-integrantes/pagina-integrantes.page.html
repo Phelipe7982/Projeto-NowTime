@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Membros do grupo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Membros do grupo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Botão de voltar para o início -->
+  <ion-button (click)="voltarTab4()" size="small" fill="clear">
+    <ion-icon slot="start" name="chevron-back"></ion-icon>
+    Voltar
+  </ion-button>
+
+  <!-- Card atual dos integrantes -->
+  <ion-card *ngIf="currentCardIndex >= 0 && currentCardIndex < cards.length">
+    <ion-card-header>
+      <ion-card-title>{{ cards[currentCardIndex].title }}</ion-card-title>
+      <ion-card-subtitle>{{ cards[currentCardIndex].subtitle }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ cards[currentCardIndex].text }}
+    </ion-card-content>
+
+    <div id="btn-card">
+      <ion-button (click)="anteriorCard()" fill="outline" size="small">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
+      <ion-button (click)="proximoCard()" fill="outline" size="small">
+        <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card>
+</ion-content>

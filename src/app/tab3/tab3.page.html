@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Procurar notícias</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated="true" placeholder="Nome ou URL da notícia"></ion-searchbar>  <!--Barra de Pesquisa (Android)-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>Procurar notícias</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar animated="true" placeholder="Nome ou URL da notícia"></ion-searchbar>    <!--Barra de Pesquisa (IOS)-->
+    </ion-toolbar>
+  </ion-header>
+
+
+  <!-- Botões de Rádio -->
+  <div id="div-filtro">
+    <h2>Filtrar por</h2>
+    <ion-radio-group value="filtragem" [allowEmptySelection]="true">
+        <ion-radio value="relevantes" labelPlacement="end" aria-label="Custom checkbox">Relevantes</ion-radio>
+        <ion-radio value="mais_proximos" labelPlacement="end">Mais próximos</ion-radio>
+        <ion-radio value="mais_pesquisados" labelPlacement="end">Mais pesquisados</ion-radio>
+        <ion-radio value="recentes" labelPlacement="end">Recentes</ion-radio>
+    </ion-radio-group>
+  </div>
+
+    <div id="div-local">
+      <h2>Filtrar o local das notícias</h2>
+      <!-- Lista de localidades (select) -->
+      <ion-list>
+        <ion-item>
+          <ion-select aria-label="localidades" interface="popover" placeholder="Escolha um local">
+            <ion-select-option value="padrao">Minha localização</ion-select-option>
+            <ion-select-option value="fora">De fora</ion-select-option>
+            <ion-select-option value="brasil">Brasil</ion-select-option>
+            <ion-select-option value="RJ">Rio de Janeiro</ion-select-option>
+            <ion-select-option value="SP">São Paulo</ion-select-option>
+            <ion-select-option value="MG">Minas Gerais</ion-select-option>
+            <ion-select-option value="BRA">Brasília</ion-select-option>
+            <ion-select-option value="MA">Manaus</ion-select-option>
+            <ion-select-option value="RE">Recife</ion-select-option>
+            <ion-select-option value="FOR">Fortaleza</ion-select-option>
+            <ion-select-option value="SA">Salvador</ion-select-option>
+            <ion-select-option value="BH">Belo Horizonte</ion-select-option>
+            <ion-select-option value="PA">Porto Alegre</ion-select-option>
+            <ion-select-option value="GO">Goiânia</ion-select-option>
+            <ion-select-option value="MAC">Maceió</ion-select-option>
+            <ion-select-option value="CAM">Campinas</ion-select-option>
+            <ion-select-option value="CUR">Curitiba</ion-select-option>
+            <ion-select-option value="RN">Rio Grande do Norte</ion-select-option>
+            <ion-select-option value="RS">Rio Grande do Sul</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-button expand="block">Procurar</ion-button>
+
+  <script lang="ts" setup>
+    import { IonSearchbar } from '@ionic/vue';
+  </script>
+</ion-content>

@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>NowTime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">NowTime</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form novalidate [formGroup]="cadForm" (ngSubmit)="cadastrar()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Cadastro</ion-card-title>
+      <ion-card-subtitle>Insira seus dados</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <!--Input Nome-->
+      <ion-item>
+        <ion-input
+        formControlName="nome"
+        name="nome"
+        id="nome"
+        label="Nome"
+        labelPlacement="stacked"
+        [clearOnEdit]="true"
+        placeholder="Digite o seu nome">
+        </ion-input>
+      </ion-item>
+
+      <!-- Texto de erro para o campo nome -->
+      <div *ngIf="cadForm.get('nome')?.invalid && cadForm.get('nome')?.touched">
+        <ion-text color="danger">
+          Nome deve ter pelo menos 6 caracteres.
+        </ion-text>
+      </div>
+
+      <!--Input telefone -->
+      <ion-item>
+        <ion-input
+        formControlName="telefone"
+        name="telefone"
+        id="telefone"
+        label="Telefone Celular"
+        type="tel"
+        labelPlacement="stacked"
+        [clearOnEdit]="true"
+        placeholder="(21) XXXXX-XXXX">
+        </ion-input>
+      </ion-item>
+
+      <!-- Texto de erro para o campo telefone -->
+      <div *ngIf="cadForm.get('telefone')?.invalid && cadForm.get('telefone')?.touched">
+        <ion-text color="danger">
+          Insira um telefone válido.
+        </ion-text>
+      </div>
+
+      <!--Input E-mail -->
+      <ion-item>
+        <ion-input
+        formControlName="email"
+        name="email"
+        id="email"
+        label="E-mail"
+        labelPlacement="stacked"
+        [clearOnEdit]="true"
+        placeholder="Digite seu e-mail">
+        </ion-input>
+      </ion-item>
+
+      <!-- Texto de erro para o campo email -->
+      <div *ngIf="cadForm.get('email')?.invalid && cadForm.get('email')?.touched">
+        <ion-text color="danger">
+          Insira um email válido.
+        </ion-text>
+      </div>
+
+      <!--Input Senha-->
+      <ion-item>
+        <ion-input
+        formControlName="password"
+        id="senha"
+        label="Senha"
+        labelPlacement="stacked"
+        name="password"
+        type="password"
+        placeholder="Digite sua senha">
+        </ion-input>
+      </ion-item>
+
+      <!-- Texto de erro para o campo senha -->
+      <div *ngIf="cadForm.get('password')?.invalid && cadForm.get('password')?.touched">
+        <ion-text color="danger">
+          Senha deve ter pelo menos 6 caracteres.
+        </ion-text>
+      </div>
+
+
+
+    </ion-card-content>
+    <ion-button type="submit" [disabled]="cadForm.invalid" expand="full" shape="round">Cadastrar<ion-icon slot="end" name="log-in-outline"></ion-icon></ion-button> <br/>
+    <ion-label>Já possui conta? <ion-button id="link-login" (click)="irPagLogin()" fill="clear">Logue-se</ion-button> </ion-label>
+
+  </ion-card>
+</form>
+</ion-content>
